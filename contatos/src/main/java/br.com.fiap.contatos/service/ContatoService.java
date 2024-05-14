@@ -44,9 +44,9 @@ public class ContatoService {
         }
     }
 
-    public List<Contato> aniversarianteDoMes(LocalDate dataIni, LocalDate dataFim){
-        return contatoRepository.findByDataNascimentoBewtween(dataIni, dataFim);
-    }
+//    public List<Contato> aniversarianteDoMes(LocalDate dataIni, LocalDate dataFim){
+//        return contatoRepository.findByDataNascimentoBewtween(dataIni, dataFim);
+//    }
 
     public Contato atualizar(Contato contato){
         Optional<Contato> contatoOptional = contatoRepository.findById(contato.getId());

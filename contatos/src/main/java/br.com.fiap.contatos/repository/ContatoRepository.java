@@ -9,6 +9,6 @@ import java.util.Optional;
 public interface ContatoRepository extends JpaRepository<Contato, Long> {
 
     public Optional<Contato> findByNome(String nome);
-    public List<Contato> findByDataNascimentoBewtween(LocalDate dataInicial, LocalDate dataFinal);
+//    public List<Contato> findByDataNascimentoBewtween(LocalDate dataInicial, LocalDate dataFinal);
 
 }

@@ -45,8 +45,8 @@ public class ContatoController {
         return service.buscarPeloNome(nome);
     }
 
-    @GetMapping("/contatos/{dataIni}/{dataFim}")
-    public List<Contato> aniversarianteMes(@PathVariable LocalDate dataIni,@PathVariable LocalDate dataFim){
-        return service.aniversarianteDoMes(dataIni, dataFim);
-    }
+//    @GetMapping("/contatos/{dataIni}/{dataFim}")
+//    public List<Contato> aniversarianteMes(@PathVariable LocalDate dataIni,@PathVariable LocalDate dataFim){
+//        return service.aniversarianteDoMes(dataIni, dataFim);
+//    }
 }

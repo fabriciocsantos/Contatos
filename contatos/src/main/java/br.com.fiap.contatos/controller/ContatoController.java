@@ -1,12 +1,13 @@
 package br.com.fiap.contatos.controller;
 
+import br.com.fiap.contatos.dto.ContatoCadastroDto;
+import br.com.fiap.contatos.dto.ContatoExibicaoDto;
 import br.com.fiap.contatos.model.Contato;
 import br.com.fiap.contatos.service.ContatoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDate;
 import java.util.List;
 
 @RestController
@@ -18,14 +19,20 @@ public class ContatoController {
 
     @PostMapping("/contatos")
     @ResponseStatus(HttpStatus.CREATED)
-    public Contato gravar(@RequestBody Contato contato){
-        return service.gravar(contato);
+    public ContatoExibicaoDto gravar(@RequestBody ContatoCadastroDto contatoCadastroDto){
+        return service.gravar(contatoCadastroDto);
     }
 
     @GetMapping("/contatos")
     @ResponseStatus(HttpStatus.OK)
     public List<Contato> listarContatos(){
         return service.listarContatos();
+    }
+
+    @GetMapping("/contatos/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public ContatoExibicaoDto buscarPorId(@PathVariable Long id){
+        return service.buscarId(id);
     }
 
     @DeleteMapping("/contatos/{id}")
@@ -36,17 +43,7 @@ public class ContatoController {
 
     @PutMapping("/contatos")
     @ResponseStatus(HttpStatus.OK)
-    public Contato atualizar(Contato contato){
+    public Contato atualizar(@RequestBody Contato contato){
         return service.atualizar(contato);
     }
-
-    @GetMapping("/contatos/{nome}")
-    public Contato buscarNome(@PathVariable String nome){
-        return service.buscarPeloNome(nome);
-    }
-
-//    @GetMapping("/contatos/{dataIni}/{dataFim}")
-//    public List<Contato> aniversarianteMes(@PathVariable LocalDate dataIni,@PathVariable LocalDate dataFim){
-//        return service.aniversarianteDoMes(dataIni, dataFim);
-//    }
 }

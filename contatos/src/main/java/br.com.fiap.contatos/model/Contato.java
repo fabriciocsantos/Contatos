@@ -18,11 +18,14 @@ public class Contato {
     @Column(name = "NM_CONTATO")
     private String nome;
 
-    @Column(name = "EM_CONTATO")
+    @Column(name = "EMAIL_CONTATO")
     private String email;
 
     @Column(name = "DTNASC_CONTATO")
     private LocalDate dataNascimento;
+
+    @Column(name = "SENHA_CONTATO")
+    private String senha;
 
     public Long getId() {
         return id;
@@ -54,6 +57,14 @@ public class Contato {
 
     public void setDataNascimento(LocalDate dataNascimento) {
         this.dataNascimento = dataNascimento;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
 
     @Override

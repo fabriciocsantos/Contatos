@@ -4,6 +4,7 @@ import br.com.fiap.contatos.dto.ContatoCadastroDto;
 import br.com.fiap.contatos.dto.ContatoExibicaoDto;
 import br.com.fiap.contatos.model.Contato;
 import br.com.fiap.contatos.service.ContatoService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -19,7 +20,7 @@ public class ContatoController {
 
     @PostMapping("/contatos")
     @ResponseStatus(HttpStatus.CREATED)
-    public ContatoExibicaoDto gravar(@RequestBody ContatoCadastroDto contatoCadastroDto){
+    public ContatoExibicaoDto gravar(@RequestBody @Valid ContatoCadastroDto contatoCadastroDto){
         return service.gravar(contatoCadastroDto);
     }
 

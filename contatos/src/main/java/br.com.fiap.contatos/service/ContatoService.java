@@ -9,6 +9,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -27,6 +28,17 @@ public class ContatoService {
     public ContatoExibicaoDto buscarId(Long id){
 
         Optional<Contato> contatoOptional = contatoRepository.findById(id);
+
+        if(contatoOptional.isPresent()){
+            return new ContatoExibicaoDto(contatoOptional.get());
+        }else{
+            throw new ExceptionUserNotFound("Contato não encontrado");
+        }
+    }
+
+    public ContatoExibicaoDto buscarPorNome(String nome){
+
+        Optional<Contato> contatoOptional = contatoRepository.buscarPorNome(nome);
 
         if(contatoOptional.isPresent()){
             return new ContatoExibicaoDto(contatoOptional.get());

@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @RestController
@@ -34,6 +35,11 @@ public class ContatoController {
     @ResponseStatus(HttpStatus.OK)
     public ContatoExibicaoDto buscarPorId(@PathVariable Long id){
         return service.buscarId(id);
+    }
+    @GetMapping("/contatos/consultaPorNome/{nome}")
+    @ResponseStatus(HttpStatus.OK)
+    public ContatoExibicaoDto buscarPorNome(@PathVariable String nome){
+        return service.buscarPorNome(nome);
     }
 
     @DeleteMapping("/contatos/{id}")

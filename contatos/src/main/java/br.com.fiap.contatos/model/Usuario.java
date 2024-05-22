@@ -75,6 +75,9 @@ public class Usuario implements UserDetails {
         }
     }
 
+
+    //GETTER E SETTER
+
     public Long getIdUsuario() {
         return idUsuario;
     }
